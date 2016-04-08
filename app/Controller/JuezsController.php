@@ -13,7 +13,20 @@ class JuezsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Juez.id' => 'asc'
+        )
+    );
+
+
+
+	
+
 
 /**
  * index method
@@ -22,7 +35,12 @@ class JuezsController extends AppController {
  */
 	public function index() {
 		$this->Juez->recursive = 0;
-		$this->set('juezs', $this->Paginator->paginate());
+
+		$this->paginate['Juez']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['Juez']['order'] = array('Juez.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('juezs', $this->paginate());
 	}
 
 /**
@@ -49,10 +67,10 @@ class JuezsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Juez->create();
 			if ($this->Juez->save($this->request->data)) {
-				$this->Session->setFlash(__('The juez has been saved.'));
+				$this->Session->setFlash(__('The juez has been saved.', 'default', array('class' => 'alert alert-success')));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The juez could not be saved. Please, try again.'));
+				$this->Session->setFlash('The juez could not be saved. Please, try again.', array('class' => 'alert alert-danger'));
 			}
 		}
 		$audiencias = $this->Juez->Audiencia->find('list');

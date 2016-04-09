@@ -13,7 +13,16 @@ class CiudadsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Ciudad.id' => 'asc'
+        )
+    );
+
 
 /**
  * index method
@@ -22,9 +31,13 @@ class CiudadsController extends AppController {
  */
 	public function index() {
 		$this->Ciudad->recursive = 0;
-		$this->set('ciudads', $this->Paginator->paginate());
-	}
 
+		$this->paginate['Ciudad']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['Ciudad']['order'] = array('Ciudad.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('ciudads', $this->paginate());
+	}
 /**
  * view method
  *

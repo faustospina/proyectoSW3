@@ -13,7 +13,16 @@ class FiscalsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Fiscal.id' => 'asc'
+        )
+    );
+
 
 /**
  * index method
@@ -22,7 +31,12 @@ class FiscalsController extends AppController {
  */
 	public function index() {
 		$this->Fiscal->recursive = 0;
-		$this->set('fiscals', $this->Paginator->paginate());
+
+		$this->paginate['Fiscal']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['Fiscal']['order'] = array('Fiscal.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('fiscals', $this->paginate());
 	}
 
 /**

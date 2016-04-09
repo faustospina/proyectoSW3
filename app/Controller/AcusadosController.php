@@ -13,7 +13,16 @@ class AcusadosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Acusado.id' => 'asc'
+        )
+    );
+
 
 /**
  * index method
@@ -22,7 +31,12 @@ class AcusadosController extends AppController {
  */
 	public function index() {
 		$this->Acusado->recursive = 0;
-		$this->set('acusados', $this->Paginator->paginate());
+
+		$this->paginate['Acusado']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['Acusado']['order'] = array('Acusado.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('acusados', $this->paginate());
 	}
 
 /**

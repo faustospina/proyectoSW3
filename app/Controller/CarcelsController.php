@@ -10,10 +10,17 @@ class CarcelsController extends AppController {
 
 /**
  * Components
- *
- * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Carcel.id' => 'asc'
+        )
+    );
+
 
 /**
  * index method
@@ -22,8 +29,14 @@ class CarcelsController extends AppController {
  */
 	public function index() {
 		$this->Carcel->recursive = 0;
-		$this->set('carcels', $this->Paginator->paginate());
+
+		$this->paginate['Carcel']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['Carcel']['order'] = array('Carcel.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('carcels', $this->paginate());
 	}
+
 
 /**
  * view method

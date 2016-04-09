@@ -13,7 +13,16 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'User.id' => 'asc'
+        )
+    );
+
 
 /**
  * index method
@@ -22,7 +31,12 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+
+		$this->paginate['User']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['User']['order'] = array('User.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('users', $this->paginate());
 	}
 
 /**

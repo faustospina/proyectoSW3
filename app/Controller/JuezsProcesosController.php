@@ -13,7 +13,16 @@ class JuezsProcesosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Session', 'RequestHandler');
+	public $helpers = array('Html', 'Form', 'Time', 'Js');
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'JuezsProceso.id' => 'asc'
+        )
+    );
+
 
 /**
  * index method
@@ -22,9 +31,13 @@ class JuezsProcesosController extends AppController {
  */
 	public function index() {
 		$this->JuezsProceso->recursive = 0;
-		$this->set('juezsProcesos', $this->Paginator->paginate());
-	}
 
+		$this->paginate['JuezsProceso']['limit'] = 3;
+		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
+		$this->paginate['JuezsProceso']['order'] = array('JuezsProceso.id' => 'asc');
+ 		//$this->Paginator->settings = $this->paginate;
+		$this->set('juezsProcesos', $this->paginate());
+	}
 /**
  * view method
  *

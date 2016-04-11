@@ -11,8 +11,9 @@
 		echo $this->Form->input('celular', array('class' => 'form-control', 'label' => 'Celular'));
 		echo $this->Form->input('correo', array('class' => 'form-control', 'label' => 'Correo electronico'));
 		echo $this->Form->input('username', array('class' => 'form-control', 'label' => 'Nombre de usuario'));
-		echo $this->Form->input('password', array('class' => 'form-control', 'label' => 'contraseña'));
+		
 		echo $this->Form->input('tituloProfesional', array('class' => 'form-control', 'label' => 'titulo profesional'));
+		//echo $this->Form->input('role', array('class' => 'form-control', 'label' => 'Rol', 'type' => 'select', 'options' => array('admin' => 'Administrador', 'user' => 'Usuario'), array('class' => 'form-control')));
 	?>
 	</fieldset>
 <p>

@@ -5,6 +5,7 @@ App::uses('AppController', 'Controller');
  *
  * @property User $User
  * @property PaginatorComponent $Paginator
+ * @property SessionComponent $Session
  */
 class UsersController extends AppController {
 
@@ -23,7 +24,30 @@ class UsersController extends AppController {
         )
     );
 
+public function beforeFilter()
+	{
+		parent::beforeFilter();
+		
+		$this->Auth->allow('add','index');
+		
+	}
+public function login()
+	{
+		if($this->request->is('post'))
+		{
+			if($this->Auth->login())
+			{
+				return $this->redirect($this->Auth->redirectUrl());
+			}
+			$this->Session->setFlash('Usuario y/o contraseña son incorrectos!', 'default', array('class' => 'alert alert-danger'));
+		}
+	}
 
+public function logout()
+	{
+		return $this->redirect($this->Auth->logout());
+	}
+	
 /**
  * index method
  *
@@ -62,11 +86,12 @@ class UsersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+			$this->request->data['User']['roll'] = 'user';
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash('The user has been saved.', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash('The user could not be saved. Please, try again.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}

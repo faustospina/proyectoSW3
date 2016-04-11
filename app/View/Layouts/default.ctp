@@ -29,8 +29,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('style.css' ,'bootstrap.min','bootstrap-theme.min', 'fileinput.min', 'jquery-ui.min'));
-		echo $this->Html->script(array('jquery.min', 'bootstrap.min', 'fileinput.min', 'jquery-ui.min', 'search'));
+		echo $this->Html->css(array('style.css' ,'bootstrap.min','bootstrap-theme.min', 'fileinput.min', 'jquery-ui.min','bootstrap-datetimepicker.min','calendar'));
+		echo $this->Html->script(array('jquery.min', 'bootstrap.min', 'fileinput.min', 'jquery-ui.min', 'search','calendar','bootstrap-datetimepicker.es','bootstrap-datetimepicker','addtocart','cart','docs.min','es-ES','fileinput.min','jquery.animate-colors','moment','underscore-min'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -39,15 +39,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </head>
 <body>
 
+	<?php if(isset($current_user)): ?>
 	<?php echo $this->element('menu'); ?>
+	<?php endif; ?>
 	
 
-    <div class="container theme-showcase" role="main">
+    <div class="container" role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
    
       	<?php echo $this->Session->flash(); ?>
+      	<?php echo $this->Session->flash('auth'); ?>
 		<?php echo $this->fetch('content'); ?>
+
+		
 
 		
 

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<?php echo $this->Form->create('Acusado', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Acusado', array('role' => 'form','type'=>'file', 'novalidate' => 'novalidate')); ?>
 	<fieldset>
 		<legend><?php echo __('Editar Acusado'); ?></legend>
 	<?php
@@ -13,6 +13,8 @@
 		echo $this->Form->input('culpabilidad');
 		echo $this->Form->input('capacidadPago');
 		echo $this->Form->input('sentencia',array('class' => 'form-control', 'label' => 'Sentencia'));
+		echo $this->Form->input('foto', array('type' => 'file', 'label' => 'Foto', 'id' => 'foto', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true' ));
+		echo $this->Form->input('foto_dir', array('type' => 'hidden'));
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('ciudad_id');
 		echo $this->Form->input('audiencia_id');

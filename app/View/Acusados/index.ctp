@@ -20,6 +20,7 @@
 			<th><?php echo $this->Paginator->sort('capacidadPago'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('sentencia'); ?></th>
+			<th><?php echo $this->Paginator->sort('foto'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('ciudad_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('audiencia_id'); ?></th>
@@ -39,6 +40,7 @@
 		<td><?php echo h($acusado['Acusado']['capacidadPago']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['sentencia']); ?>&nbsp;</td>
+			<td><?php echo $this->Html->image('../files/acusado/foto/' . $acusado['Acusado']['foto_dir'] . '/' . 'thumb_' .$acusado['Acusado']['foto'], array('url' => array('controller' => 'acusados', 'action' => 'view', $acusado['Acusado']['id']))); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($acusado['User']['nombre'], array('controller' => 'users', 'action' => 'view', $acusado['User']['id'])); ?>
 		</td>

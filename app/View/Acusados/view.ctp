@@ -18,6 +18,7 @@
 		<th><?php echo __('CapacidadPago'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('Sentencia'); ?></th>
+		<th><?php echo __('Foto'); ?></th>
 		<th><?php echo __('User'); ?></th>
 		<th><?php echo __('Ciudad'); ?></th>
 		<th><?php echo __('Audiencia'); ?></th>
@@ -74,6 +75,10 @@
 			<?php echo h($acusado['Acusado']['sentencia']); ?>
 			&nbsp;
 		</td>
+
+		<td><?php echo h($acusado['Acusado']['foto']); ?>
+			&nbsp;</td>
+		
 		
 		<td>
 			<?php echo $this->Html->link($acusado['User']['nombre'], array('controller' => 'users', 'action' => 'view', $acusado['User']['id'])); ?>

@@ -15,10 +15,11 @@
 			<th><?php echo $this->Paginator->sort('celular'); ?></th>
 			<th><?php echo $this->Paginator->sort('correo'); ?></th>
 			<th><?php echo $this->Paginator->sort('username'); ?></th>
-			<th><?php echo $this->Paginator->sort('password'); ?></th>
+
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th><?php echo $this->Paginator->sort('tituloProfesional'); ?></th>
+			<th><?php echo $this->Paginator->sort('roll'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -31,10 +32,11 @@
 		<td><?php echo h($user['User']['celular']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['correo']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
+
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['tituloProfesional']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['roll']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id']),array('class' => 'btn btn-xs btn-info')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id']),array('class' => 'btn btn-xs btn-warning')); ?>

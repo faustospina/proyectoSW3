@@ -13,10 +13,11 @@
 		<th><?php echo __('Celular'); ?></th>
 		<th><?php echo __('Correo'); ?></th>
 		<th><?php echo __('Username'); ?></th>
-		<th><?php echo __('Password'); ?></th>
+	
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('TituloProfesional'); ?></th>
+		<th><?php echo __('Roll'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -27,10 +28,11 @@
 		<td><?php echo h($user['User']['celular']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['correo']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
+		
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['tituloProfesional']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['roll']); ?>&nbsp;</td>
 		</tr>
 	</tbody>
 	</table>

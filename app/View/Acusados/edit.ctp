@@ -1,3 +1,8 @@
+<br />
+<br />
+<br />
+<br />	
+<br />
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
@@ -8,6 +13,7 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('nombre', array('class' => 'form-control', 'label' => 'Nombre'));
 		echo $this->Form->input('apellidos',array('class' => 'form-control', 'label' => 'Apellidos'));
+		echo $this->Form->input('cedula',array('class' => 'form-control', 'label' => 'Cedula'));
 		echo $this->Form->input('direccion',array('class' => 'form-control', 'label' => 'Direccion'));
 		echo $this->Form->input('ocupacion',array('class' => 'form-control', 'label' => 'Ocupacion'));
 		echo $this->Form->input('culpabilidad');

@@ -20,7 +20,7 @@
 **/
 
 // Incluimos nuestro archivo config
-include 'config.php'; 
+include 'config.ctp'; 
 
 // Sentencia sql para traer los eventos desde la base de datos
 $sql="SELECT * FROM eventos"; 

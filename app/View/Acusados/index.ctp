@@ -1,5 +1,8 @@
-
-
+<br />
+<br />
+<br />
+<br />	
+<br />
 <div class="page-header">
 	<h2><?php echo __('Acusados'); ?></h2>
 </div>
@@ -10,46 +13,34 @@
 	<table class="table table-striped">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('foto'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('nombre'); ?></th>
 			<th><?php echo $this->Paginator->sort('apellidos'); ?></th>
-			<th><?php echo $this->Paginator->sort('direccion'); ?></th>
-			<th><?php echo $this->Paginator->sort('ocupacion'); ?></th>
+			<th><?php echo $this->Paginator->sort('cedula'); ?></th>
+	
 			<th><?php echo $this->Paginator->sort('culpabilidad'); ?></th>
 			<th><?php echo $this->Paginator->sort('capacidadPago'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('sentencia'); ?></th>
-			<th><?php echo $this->Paginator->sort('foto'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('ciudad_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('audiencia_id'); ?></th>
+		
+		
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($acusados as $acusado): ?>
 	<tr>
-		<td><?php echo h($acusado['Acusado']['id']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->image('../files/acusado/foto/' . $acusado['Acusado']['foto_dir'] . '/' . 'thumb_' .$acusado['Acusado']['foto'], array('url' => array('controller' => 'acusados', 'action' => 'view', $acusado['Acusado']['id']))); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['created']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['nombre']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['apellidos']); ?>&nbsp;</td>
-		<td><?php echo h($acusado['Acusado']['direccion']); ?>&nbsp;</td>
-		<td><?php echo h($acusado['Acusado']['ocupacion']); ?>&nbsp;</td>
+		<td><?php echo h($acusado['Acusado']['cedula']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['culpabilidad']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['capacidadPago']); ?>&nbsp;</td>
 		<td><?php echo h($acusado['Acusado']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($acusado['Acusado']['sentencia']); ?>&nbsp;</td>
-			<td><?php echo $this->Html->image('../files/acusado/foto/' . $acusado['Acusado']['foto_dir'] . '/' . 'thumb_' .$acusado['Acusado']['foto'], array('url' => array('controller' => 'acusados', 'action' => 'view', $acusado['Acusado']['id']))); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($acusado['User']['nombre'], array('controller' => 'users', 'action' => 'view', $acusado['User']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($acusado['Ciudad']['nombre'], array('controller' => 'ciudads', 'action' => 'view', $acusado['Ciudad']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($acusado['Audiencia']['nombre'], array('controller' => 'audiencias', 'action' => 'view', $acusado['Audiencia']['id'])); ?>
-		</td>
+
+			
+	
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $acusado['Acusado']['id']),array('class' => 'btn btn-xs btn-info')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $acusado['Acusado']['id']),array('class' => 'btn btn-xs btn-warning')); ?>

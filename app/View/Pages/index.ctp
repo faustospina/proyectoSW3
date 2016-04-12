@@ -23,10 +23,10 @@
 date_default_timezone_set("America/Santiago");
 
 // incluimos el archivo de funciones
-include 'funciones.php';
+include 'funciones.ctp';
 
 // incluimos el archivo de configuracion
-include 'config.php';
+include 'config.ctp';
 
 // Verificamos si se ha enviado el campo con name from
 if (isset($_POST['from'])) 
@@ -125,7 +125,7 @@ if (isset($_POST['from']))
 
                                 </div>
                                     <div class="pull-right form-inline"><br>
-                                        <button class="btn btn-info" data-toggle='modal' data-target='#add_evento'>Añadir Evento</button>
+                                        <button class="btn btn-info" data-toggle='tmpls/modal' data-target='#add_evento'>Añadir Evento</button>
                                     </div>
 
                 </div><hr>
@@ -136,14 +136,14 @@ if (isset($_POST['from']))
                 </div>
 
                 <!--ventana modal para el calendario-->
-                <div class="modal fade" id="events-modal">
-                    <div class="modal-dialog">
-                            <div class="modal-content">
-                                    <div class="modal-body" style="height: 400px">
+                <div class="tmpls/modal fade" id="tmpls/events-modal">
+                    <div class="tmpls/modal-dialog">
+                            <div class="tmpls/modal-content">
+                                    <div class="tmpls/modal-body" style="height: 400px">
                                         <p>One fine body&hellip;</p>
                                     </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <div class="tmpls/modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="tmpls/modal">Cerrar</button>
                                 </div>
                             </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->

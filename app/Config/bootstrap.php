@@ -70,7 +70,7 @@ Cache::config('default', array('engine' => 'File'));
   *
  */
 CakePlugin::load('Upload'); 
-CakePlugin::load('Calendario'); 
+ 
 
 
 /**

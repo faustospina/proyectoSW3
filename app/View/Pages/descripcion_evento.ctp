@@ -20,10 +20,10 @@
 **/
     
     //incluimos nuestro archivo config
-    include 'config.php'; 
+    include 'config.ctp'; 
 
     // Incluimos nuestro archivo de funciones
-    include 'funciones.php';
+    include 'funciones.ctp';
 
     // Obtenemos el id del evento
     $id  = evaluar($_GET['id']);

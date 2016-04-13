@@ -83,10 +83,10 @@ class AudienciasController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Audiencia->save($this->request->data)) {
-				$this->Session->setFlash(__('The audiencia has been saved.'));
+				$this->Session->setFlash('la audiencia ha sido editada', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The audiencia could not be saved. Please, try again.'));
+				$this->Session->setFlash('la audiencia no se ha podido editar.', 'default', array('class' =>'alert alert-danger' ));
 			}
 		} else {
 			$options = array('conditions' => array('Audiencia.' . $this->Audiencia->primaryKey => $id));

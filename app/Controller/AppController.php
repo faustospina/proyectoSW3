@@ -27,8 +27,8 @@ App::uses('Controller', 'Controller');
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @package		app.Controller
- * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * @package     app.Controller
+ * @link        http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
 
@@ -36,8 +36,8 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'users',
-                'action' => 'index'
+                'controller' => 'pages',
+                'action' => 'home'
             ),
             'logoutRedirect' => array(
                 'controller' => 'users',
@@ -61,7 +61,7 @@ class AppController extends Controller {
     
     public function isAuthorized($user)
     {
-        if(isset($user['roll']) && $user['roll'] === 'admin')
+        if(isset($user['roll']) && $user['roll'] === 'admin'||'user')
         {
             return true;
         }

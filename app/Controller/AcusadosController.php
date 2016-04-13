@@ -63,10 +63,10 @@ class AcusadosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Acusado->create();
 			if ($this->Acusado->save($this->request->data)) {
-				$this->Session->setFlash(__('The acusado has been saved.'));
+				$this->Session->setFlash('el acusado se ha guardado con exito', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller'=>'procesos','action'=>'add'));
 			} else {
-				$this->Session->setFlash(__('The acusado could not be saved. Please, try again.'));
+				$this->Session->setFlash('no se pudo completar el resgistro', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$users = $this->Acusado->User->find('list');
@@ -88,10 +88,10 @@ class AcusadosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Acusado->save($this->request->data)) {
-				$this->Session->setFlash(__('The acusado has been saved.', 'default', array('class' => 'alert alert-success')));
+				$this->Session->setFlash('el acusado ha sido editado con exito', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('The user could not be saved. Please, try again.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('no se ha podido editar el acusado', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Acusado.' . $this->Acusado->primaryKey => $id));
@@ -117,9 +117,9 @@ class AcusadosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Acusado->delete()) {
-			$this->Session->setFlash(__('The acusado has been deleted.'));
+			$this->Session->setFlash('se pudo eliminar', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Session->setFlash(__('The acusado could not be deleted. Please, try again.'));
+			$this->Session->setFlash('no se pudo eliminar', 'default', array('class' => 'alert alert-success'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

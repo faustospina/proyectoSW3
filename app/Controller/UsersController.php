@@ -28,7 +28,7 @@ public function beforeFilter()
 	{
 		parent::beforeFilter();
 		
-		$this->Auth->allow('add','index');
+	//	$this->Auth->allow();
 		
 	}
 public function login()
@@ -86,12 +86,13 @@ public function logout()
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+			//configurar el roll al agregar
 			$this->request->data['User']['roll'] = 'user';
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash('The user has been saved.', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('se ha agregado el susuario satisfactoriamente', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('The user could not be saved. Please, try again.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('no se pudo a podido guardar', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}

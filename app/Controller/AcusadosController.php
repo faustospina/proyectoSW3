@@ -17,7 +17,7 @@ class AcusadosController extends AppController {
 	public $helpers = array('Html', 'Form', 'Time', 'Js');
 
 	  public $paginate = array(
-        'limit' => 3,
+        'limit' => 2,
         'order' => array(
             'Acusado.id' => 'asc'
         )
@@ -32,7 +32,7 @@ class AcusadosController extends AppController {
 	public function index() {
 		$this->Acusado->recursive = 0;
 
-		$this->paginate['Acusado']['limit'] = 3;
+		$this->paginate['Acusado']['limit'] = 2;
 		//$this->paginate['Mesero']['conditions'] = array('Mesero.dni' => "34343");
 		$this->paginate['Acusado']['order'] = array('Acusado.id' => 'asc');
  		//$this->Paginator->settings = $this->paginate;
@@ -122,5 +122,64 @@ class AcusadosController extends AppController {
 			$this->Session->setFlash(__('The acusado could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+	
+	
+	
+	
+	
+		public function searchjson()
+	{
+		$term = null;
+		if(!empty($this->request->query['term']))
+		{
+			$term = $this->request->query['term'];
+			$terms = explode(' ', trim($term));
+			$terms = array_diff($terms, array(''));
+			foreach($terms as $term)
+			{
+				$conditions[] = array('Acusado.nombre LIKE' => '%' . $term . '%');
+			}
+			
+			$acusados = $this->Acusado->find('all', array('recursive' => -1, 'fields' => array('Acusado.id', 'Acusado.nombre', 'Acusado.foto', 'Acusado.foto_dir'), 'conditions' => $conditions, 'limit' => 20));
+		}
+		echo json_encode($acusados);
+		$this->autoRender = false;
+	}
+	
+	public function search()
+	{
+		$search = null;
+		if(!empty($this->request->query['search']))
+		{
+			$search = $this->request->query['search'];
+			$search = preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $search);
+			$terms = explode(' ', trim($search));
+			$terms = array_diff($terms, array(''));
+			
+			foreach($terms as $term)
+			{
+				$terms1[] = preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $term);
+				$conditions[] = array('Acusado.nombre LIKE' => '%' . $term . '%');
+			}
+			$acusados = $this->Acusado->find('all', array('recursive' => -1, 'conditions' => $conditions, 'limit' => 200));
+			if(count($acusados) == 1)
+			{
+				return $this->redirect(array('controller' => 'acusados', 'action' => 'view', $acusados[0]['Acusado']['id']));
+			}
+			$terms1 = array_diff($terms1, array(''));
+			$this->set(compact('acusados', 'terms1'));
+		}
+		$this->set(compact('search'));
+		
+		if($this->request->is('ajax'))
+		{
+			$this->layout = false;
+			$this->set('ajax', 1);
+		}
+		else
+		{
+			$this->set('ajax', 0);
+		}
 	}
 }

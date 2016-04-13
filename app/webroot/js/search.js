@@ -6,7 +6,7 @@ $(document).ready(function(){
         },
         source: function(request, response) {
             $.ajax({
-                url: basePath + "platillos/searchjson",
+                url: basePath + "acusados/searchjson",
                 data: {
                     term: request.term
                 },
@@ -14,10 +14,10 @@ $(document).ready(function(){
                 success: function(data){
                     response($.map(data, function(el, index){
                         return {
-                            value: el.Platillo.nombre,
-                            nombre: el.Platillo.nombre,
-                            foto: el.Platillo.foto,
-                            foto_dir: el.Platillo.foto_dir
+                            value: el.Acusado.nombre,
+                            nombre: el.Acusado.nombre,
+                            foto: el.Acusado.foto,
+                            foto_dir: el.Acusado.foto_dir
                         };
                     }));
                 }
@@ -26,7 +26,7 @@ $(document).ready(function(){
     }).data("ui-autocomplete")._renderItem = function(ul, item){
         return $("<li></li>")
         .data("item.autocomplete", item)
-        .append("<a><img width='40' src='" + basePath + "files/platillo/foto/" + item.foto_dir + "/" + item.foto + "' />" + item.nombre +  "</a>")
+        .append("<a><img width='40' src='" + basePath + "files/acusado/foto/" + item.foto_dir + "/" + item.foto + "' />" + item.nombre +  "</a>")
         .appendTo(ul)
     };
 });

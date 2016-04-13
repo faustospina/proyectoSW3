@@ -30,12 +30,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css(array('style.css' ,'bootstrap.min','bootstrap-theme.min', 'fileinput.min', 'jquery-ui.min','bootstrap-datetimepicker.min','calendar'));
-		echo $this->Html->script(array('jquery.min', 'bootstrap.min', 'fileinput.min', 'jquery-ui.min', 'search','calendar','bootstrap-datetimepicker.es','bootstrap-datetimepicker','addtocart','cart','docs.min','es-ES','fileinput.min','jquery.animate-colors','moment','underscore-min'));
+		echo $this->Html->script(array('jquery.min', 'bootstrap.min', 'fileinput.min', 'jquery-ui.min', 'search','calendar','bootstrap-datetimepicker.es','bootstrap-datetimepicker','addtocart','cart','docs.min','es-ES','fileinput.min','jquery.animate-colors','moment','underscore-min','search'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+
+	<script type="text/javascript">
+		$("#foto").fileinput();
+		
+		var basePath = "<?php echo Router::url('/'); ?>"
+	</script>
+
+
 </head>
 <body>
 

@@ -1,105 +1,51 @@
+<br />
+<br />
 
-<div class="page-header">
-<h2><?php echo __('Acusado', array('role' => 'form')); ?></h2>
+
+<?php echo $this->Html->script( array('addtocart.js'), array('inline' => false) ); ?>	
+	
+	<h1><?php echo $acusado['Acusado']['nombre']; ?></h1>
+
+<div class="row">
+
+	<div class="col col-sm-7">
+			<?php echo $this->Html->image('../files/acusado/foto/' . $acusado['Acusado']['foto_dir'] . '/' . 'vga_' .$acusado['Acusado']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+	</div>
+
+	<div class="col col-sm-5">
+
+	<h1><strong><?php echo $acusado['Acusado']['nombre']; ?></strong>
+		<strong><?php echo $acusado['Acusado']['apellidos']; ?></strong>
+		<strong><?php echo $acusado['Acusado']['cedula']; ?></strong></h1>
+		<br />
+		<br />
+		<b> Ocupacion: </b> <span id="acusadprice"><?php echo h($acusado['Acusado']['ocupacion']); ?></span></h1>
+		<br />
+		<br />
+		<b>	Tiempo en la carcel: </b><?php echo h($acusado['Acusado']['sentencia']); ?>
+		<br />
+		<br />
+		<b>Fecha de arresto: </b> <?php echo $acusado['Acusado']['created']; ?>
+		<br />
+		<br />
+		<b>Ultima modificacion al registro: </b> <?php echo $acusado['Acusado']['modified']; ?>
+		<br />
+		<br />
+		<b>Ciudad de arresto: </b><?php echo $this->Html->link($acusado['Ciudad']['nombre'], array('controller' => 'ciudads', 'action' => 'view', $acusado['Ciudad']['id'])); ?>
+		<br />
+		<br />
+		<b>Direccion donde reside: </b><?php echo h($acusado['Acusado']['direccion']); ?>
+		<br />
+		<br />
+		<b>Abogado a cargo del proceso: </b><?php echo $this->Html->link($acusado['User']['nombre'], array('controller' => 'users', 'action' => 'view', $acusado['User']['id'])); ?>
+		<?php echo $this->Html->link($acusado['User']['apellidos'], array('controller' => 'users', 'action' => 'view', $acusado['User']['id'])); ?>	
+		<br />
+		<br />
+		<b>Audiencia en la que se encuentra en el momento: </b>	<?php echo $this->Html->link($acusado['Audiencia']['nombre'], array('controller' => 'audiencias', 'action' => 'view', $acusado['Audiencia']['id'])); ?>
+<br />
+<br />
+	</div>
 </div>
-
-<div class="col-md-12">
-
-	<table class="table table-striped">
-	<thead>
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Apellidos'); ?></th>
-		<th><?php echo __('Direccion'); ?></th>
-		<th><?php echo __('Ocupacion'); ?></th>
-		<th><?php echo __('Culpabilidad'); ?></th>
-		<th><?php echo __('CapacidadPago'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th><?php echo __('Sentencia'); ?></th>
-		<th><?php echo __('Foto'); ?></th>
-		<th><?php echo __('User'); ?></th>
-		<th><?php echo __('Ciudad'); ?></th>
-		<th><?php echo __('Audiencia'); ?></th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>
-			<?php echo h($acusado['Acusado']['id']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['created']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['nombre']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['apellidos']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['direccion']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['ocupacion']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['culpabilidad']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['capacidadPago']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['modified']); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo h($acusado['Acusado']['sentencia']); ?>
-			&nbsp;
-		</td>
-
-		<td><?php echo h($acusado['Acusado']['foto']); ?>
-			&nbsp;</td>
-		
-		
-		<td>
-			<?php echo $this->Html->link($acusado['User']['nombre'], array('controller' => 'users', 'action' => 'view', $acusado['User']['id'])); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo $this->Html->link($acusado['Ciudad']['nombre'], array('controller' => 'ciudads', 'action' => 'view', $acusado['Ciudad']['id'])); ?>
-			&nbsp;
-		</td>
-		
-		<td>
-			<?php echo $this->Html->link($acusado['Audiencia']['nombre'], array('controller' => 'audiencias', 'action' => 'view', $acusado['Audiencia']['id'])); ?>
-			&nbsp;
-		</td>
-
-	</tr>
-</tbody>
-	</table>
-</div>
-
 
 <div class="related">
 	<h3><?php echo __('Procesos relacionados'); ?></h3>
@@ -107,26 +53,26 @@
 	<div class="col-md-12">
 	<table class="table table-striped">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
+		
 		<th><?php echo __('NombreDelito'); ?></th>
 		<th><?php echo __('NombreVariacionDelito'); ?></th>
 		<th><?php echo __('Descripcion'); ?></th>
 		<th><?php echo __('NumeroRadicado'); ?></th>
 		<th><?php echo __('NumeroProceso'); ?></th>
 		<th><?php echo __('Estado'); ?></th>
-		<th><?php echo __('Acusado Id'); ?></th>
+		<th><?php echo __('Nombre acusado'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($acusado['Proceso'] as $proceso): ?>
 		<tr>
-			<td><?php echo $proceso['id']; ?></td>
-			<td><?php echo $proceso['nombreDelito']; ?></td>
+			
+		<td><h1><?php echo $proceso['nombreDelito']; ?></h1></td>
 			<td><?php echo $proceso['nombreVariacionDelito']; ?></td>
 			<td><?php echo $proceso['descripcion']; ?></td>
 			<td><?php echo $proceso['numeroRadicado']; ?></td>
 			<td><?php echo $proceso['numeroProceso']; ?></td>
 			<td><?php echo $proceso['estado']; ?></td>
-			<td><?php echo $proceso['acusado_id']; ?></td>
+			<td><?php echo $this->Html->link($acusado['Acusado']['nombre'], array('controller' => 'acusados', 'action' => 'view', $acusado['User']['id'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'procesos', 'action' => 'view', $proceso['id']),array('class' => 'btn btn-xs btn-info')); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'procesos', 'action' => 'edit', $proceso['id']),array('class' => 'btn btn-xs btn-warning')); ?>

@@ -7,7 +7,7 @@ $(document).ready(function(){
     function ajaxupdate(id, cantidad) {
         $.ajax({
             type: "POST",
-            url: basePath + "pedidos/itemupdate",
+            url: basePath + "acusados/itemupdate",
             data: {
                 id: id,
                 cantidad: cantidad

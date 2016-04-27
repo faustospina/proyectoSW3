@@ -30,6 +30,11 @@ class Juez extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'unique' =>array(
+				'rule' => array('isUnique'),
+				'message' => 'ya se encuentra en la base de datos',
+				
+				),
 		),
 		'apellidos' => array(
 			'notEmpty' => array(

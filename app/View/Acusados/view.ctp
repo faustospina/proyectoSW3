@@ -1,6 +1,10 @@
-<br />
-<br />
 
+
+
+
+
+<br />
+<br />
 
 <?php echo $this->Html->script( array('addtocart.js'), array('inline' => false) ); ?>	
 	
@@ -99,21 +103,17 @@
 <div class="actions">
 <div class="btn-group">
   <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-	<?php echo __('Acciones'); ?><span class="caret"></span>
-	</button>
+	<?php echo __('Opciones'); ?><span class="caret"></span>
+</button>
 	<ul class="dropdown-menu" role="menu">
-		<li><?php echo $this->Html->link(__('Edit Acusado'), array('action' => 'edit', $acusado['Acusado']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Acusado'), array('action' => 'delete', $acusado['Acusado']['id']), array(), __('Are you sure you want to delete # %s?', $acusado['Acusado']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Acusados'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Acusado'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ciudads'), array('controller' => 'ciudads', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ciudad'), array('controller' => 'ciudads', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Audiencias'), array('controller' => 'audiencias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Audiencia'), array('controller' => 'audiencias', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Procesos'), array('controller' => 'procesos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Proceso'), array('controller' => 'procesos', 'action' => 'add')); ?> </li>
+
+		<li><?php echo $this->Html->link(__('Lista de Acusados'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Lista de Ciudades'), array('controller' => 'ciudads', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nueva Ciudad'), array('controller' => 'ciudads', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista de Audiencias'), array('controller' => 'audiencias', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nueva Audiencia'), array('controller' => 'audiencias', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Procesos'), array('controller' => 'procesos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Proceso'), array('controller' => 'procesos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 </div>

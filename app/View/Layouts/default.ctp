@@ -30,22 +30,33 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css(array('style.css' ,'bootstrap.min','bootstrap-theme.min', 'fileinput.min', 'jquery-ui.min','bootstrap-datetimepicker.min','calendar'));
-		echo $this->Html->script(array('jquery.min', 'bootstrap.min', 'fileinput.min', 'jquery-ui.min', 'search','calendar','bootstrap-datetimepicker.es','bootstrap-datetimepicker','addtocart','cart','docs.min','es-ES','fileinput.min','jquery.animate-colors','moment','underscore-min','search'));
+		echo $this->Html->script(array('jquery.min', 'bootstrap.min', 'fileinput.min', 'jquery-ui.min'/*, 'search','bootstrap-datetimepicker.es','bootstrap-datetimepicker','addtocart','cart'*/,'docs.min','es-ES','fileinput.min','jquery.animate-colors','moment','underscore-min', 'jquery.qtip-1.0.0-rc3.min'/*,'jquery-1.5.min'*/,'jquery-ui-1.8.9.custom.min'/*,'ready'*/));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 
+	<?php echo $this->Html->css('fullCalendar/fullcalendar');?>
+    <?php echo $this->Html->css(array('fullCalendar/fullcalendar.print'), 'stylesheet', array('media' => 'print'));?>
+
+    <?php echo $this->Html->script('fullCalendar/moment.min');  ?>
+    <?php echo $this->Html->script('fullCalendar/jquery-ui.custom.min');  ?>
+    <?php echo $this->Html->script('fullCalendar/fullcalendar.min');  ?>
+
+    <?php echo $this->Html->css('fullCalendar/cssCalendario');?>
+    <?php echo $this->Html->script('fullCalendar/jsCalendario');  ?>
+
 	<script type="text/javascript">
 		$("#foto").fileinput();
-		
+		var path = "<?php echo  Configure::read('sw.path'); ?>";
 		var basePath = "<?php echo Router::url('/'); ?>"
 	</script>
 
 
 </head>
 <body>
+	
 
 	<?php if(isset($current_user)): ?>
 	<?php echo $this->element('menu'); ?>
@@ -56,9 +67,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
    
-      	<?php echo $this->Session->flash(); ?>
+        <?php echo $this->Session->flash(); ?>
       	<?php echo $this->Session->flash('auth'); ?>
-		<?php echo $this->fetch('content'); ?>
+      	<?php echo $this->fetch('content'); ?>
 
 		
 
@@ -76,5 +87,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		
 
 </body>
+
 <?php echo $this->element('footer'); ?>
 </html>

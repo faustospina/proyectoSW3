@@ -77,6 +77,7 @@
 	<?php endforeach; ?>
 	</table>
 	</div>
+	
 <?php endif; ?>
 
 	<div class="actions">
@@ -85,6 +86,7 @@
 		</ul>
 	</div>
 </div>
+
 <div class="related">
 	<h3><?php echo __('carceles relacionadas'); ?></h3>
 	<?php if (!empty($audiencia['Carcel'])): ?>
@@ -122,7 +124,7 @@
 	<?php endforeach; ?>
 	</table>
 	</div>
-	</div>
+	
 <?php endif; ?>
 
 	<div class="actions">
@@ -131,9 +133,12 @@
 		</ul>
 	</div>
 </div>
+
 <div class="related">
 	<h3><?php echo __('ficales relacionados a la audiencia'); ?></h3>
 	<?php if (!empty($audiencia['Fiscal'])): ?>
+	
+<div class="col-md-12">	
 	<table class="table table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -158,6 +163,8 @@
 		</tr>
 	<?php endforeach; ?>
 	</table>
+	</div>
+	
 <?php endif; ?>
 
 	<div class="actions">
@@ -166,9 +173,15 @@
 		</ul>
 	</div>
 </div>
+
+
+
+
+
 <div class="related">
 	<h3><?php echo __('jueces relacionados a la audiencia'); ?></h3>
 	<?php if (!empty($audiencia['Juez'])): ?>
+	
 	<table class="table table-striped">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -198,7 +211,7 @@
 </div>
 </div>
 
-<div class="col-md-2">
+<div class="col-md-1">
 <?php endif; ?>
 
 	<div class="actions">

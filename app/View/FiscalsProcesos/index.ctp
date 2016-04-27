@@ -1,5 +1,6 @@
 
 
+
 	<div class="page-header">
 	<h2><?php echo __('procesos fiscales'); ?></h2>
 	</div>
@@ -9,18 +10,18 @@
 	<table class="table table-striped">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('proceso_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('fiscal_id'); ?></th>
+		
+			<th><?php echo $this->Paginator->sort('Nombre del delito asociado al proceso'); ?></th>
+			<th><?php echo $this->Paginator->sort('Fiscal a cargo'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($fiscalsProcesos as $fiscalsProceso): ?>
 	<tr>
-		<td><?php echo h($fiscalsProceso['FiscalsProceso']['id']); ?>&nbsp;</td>
-		<td><?php echo h($fiscalsProceso['FiscalsProceso']['proceso_id']); ?>&nbsp;</td>
-		<td><?php echo h($fiscalsProceso['FiscalsProceso']['fiscal_id']); ?>&nbsp;</td>
+		
+		<td><?php echo h($fiscalsProceso['Proceso']['nombreDelito']); ?>&nbsp;</td>
+		<td><?php echo h($fiscalsProceso['Fiscal']['nombre']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $fiscalsProceso['FiscalsProceso']['id']),array('class' => 'btn btn-xs btn-info')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $fiscalsProceso['FiscalsProceso']['id']),array('class' => 'btn btn-xs btn-warning')); ?>
@@ -48,3 +49,4 @@
 	</div>
 
 </div>
+

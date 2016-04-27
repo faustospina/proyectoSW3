@@ -1,3 +1,4 @@
+ 
   <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -8,11 +9,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href='#'>Consultorio Juridico</a>
+          <a class="navbar-brand">Consultorio Juridico</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><?php echo $this->Html->link('HOME', array('controller' => 'pages', 'action' => 'display', 'home'))  ?></li>
+             <li class="active"><?php echo $this->Html->link('calendario', array('controller' => 'events', 'action' => 'calendario'))  ?></li>
       <?php if($current_user['roll'] == 'admin'): ?>
       <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Usuarios <span class="caret"></span></a>
@@ -46,8 +48,8 @@
                 <li><?php echo $this->Html->link('lista de Audiencias', array('controller'=>'audiencias','action'=>'index'))  ?> </li>
                 <li><?php echo $this->Html->link('lista de acusados', array('controller'=>'acusados','action'=>'index'))  ?> </li>
                 <li><?php echo $this->Html->link('lista de procesos penales', array('controller'=>'procesos','action'=>'index'))  ?> </li>
-               <li><?php echo $this->Html->link('lista de procesos asociados a un fiscal', array('controller'=>'fiscalsprocesos','action'=>'index'))  ?> </li>
-                <li><?php echo $this->Html->link('lista de procesos asociados a un juez', array('controller'=>'juezsprocesos','action'=>'index'))  ?> </li>
+               <li><?php echo $this->Html->link('lista de procesos asociados a un fiscal', array('controller'=>'fiscalsProcesos','action'=>'index'))  ?> </li>
+                <li><?php echo $this->Html->link('lista de procesos asociados a un juez', array('controller'=>'juezsProcesos','action'=>'index'))  ?> </li>
         
               </ul>
     
@@ -71,7 +73,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-<div>
-  <h2></h2>
-
-</div>
+ <br />
+   <br />
+    <br />
+   <br />

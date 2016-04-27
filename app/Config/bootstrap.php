@@ -70,7 +70,9 @@ Cache::config('default', array('engine' => 'File'));
   *
  */
 CakePlugin::load('Upload'); 
-CakePlugin::load('FullCalendar'); 
+
+
+//CakePlugin::load('FullCalendar');
 
 
 /**
